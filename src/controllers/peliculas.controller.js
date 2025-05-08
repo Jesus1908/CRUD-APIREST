@@ -23,6 +23,7 @@ export const createPeliculas = async (req, res) => {
   res.send({
     id: rows.insertId,
     titulo,
+    duracionmin,
     clasificacion,
     alanzamiento
   })
