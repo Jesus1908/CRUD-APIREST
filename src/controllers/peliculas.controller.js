@@ -52,13 +52,11 @@ export const updatePeliculas = async (req, res) => {
 }
 
 export const deletePeliculas = async (req, res) => {
-  const [result] = await pool.query("DELETE * FROM peliculas WHERE id = ?", [req.params.id])
+  const [result] = await pool.query("DELETE FROM peliculas WHERE id = ?", [req.params.id])
   if (result.affectedRows <= 0){
     return res.status(404).json({
       message: "No existe registro con este ID"
     })
   }
-
   res.sendStatus(204)
-
 }
